@@ -1,7 +1,5 @@
-import { ReactElement, ReactHTML, ReactHTMLElement, ReactNode, ReactPropTypes, useState } from 'react';
+import { ReactNode } from 'react';
 import PropTypes from 'prop-types';
-
-import { cardBtn, btn } from '../../App';
 
 import classes from './css/main.module.css';
 
@@ -33,6 +31,13 @@ export default function Card(props: Props) {
       )
 }
 
+export interface cardBtn {title: string, link: string};
 
+export const btn = (btnTitle: string, btnLink: string): cardBtn => {
+  return {title: btnTitle, link: btnLink};
+}
 
- 
+Card.propTypes = {
+  img: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.node)
+}
