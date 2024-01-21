@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import News from './news/News';
+import Ads from './ads/Ads';
 
 import classes from './css/main.module.css';
 
@@ -11,9 +12,12 @@ export const Img = ({img}: {img: string | undefined}): JSX.Element => img
 
 export default function Design() {
     return (
-        <>
-        <News />
-        </>
+        <div className={classes["App"]}>
+            <div className={classes["top"]}>
+                <News />
+                <Ads />
+            </div>
+        </div>
     )
 }
 

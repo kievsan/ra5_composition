@@ -14,9 +14,9 @@ export default function News() {
 
     return (
         <div>
-        <NewsHeader headerTabs={headerTabs} activeTab={tab} onTabChange={handlerTabChange} />
-        <NewsList activeTab={tab} />
-        <Rates />
+            <NewsHeader headerTabs={headerTabs} activeTab={tab} onTabChange={handlerTabChange} />
+            <NewsList activeTab={tab} />
+            <Rates />
         </div>
     );
 };
