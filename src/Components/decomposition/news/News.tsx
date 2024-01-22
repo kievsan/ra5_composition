@@ -13,7 +13,7 @@ export default function News({ newsData }: Props) {
     // блок новостей
     const { categories, news} = newsData
 
-    const [cat, setCategory ] = useState('Сейчас в СМИ');
+    const [cat, setCategory ] = useState(categories[0].title);
 
     const handlerCategoryChange = (activeTab: string): void => {
         //...
