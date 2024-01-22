@@ -1,28 +1,30 @@
 import {useState} from 'react';
+
 import NewsHeader from './NewsHeader';
 import NewsList from './NewsList';
 import Rates from './Rating';
 
+import { NewsData } from '../../../types';
 
-export default function News() {
+
+interface Props {newsData: NewsData};
+
+export default function News({ newsData }: Props) {
     // блок новостей
-    const [tab, setTab ] = useState('Сейчас в СМИ');
-    const handlerTabChange = (activeTab: string): void => {
+    const { categories, news} = newsData
+
+    const [cat, setCategory ] = useState('Сейчас в СМИ');
+
+    const handlerCategoryChange = (activeTab: string): void => {
         //...
-        setTab(activeTab)
+        setCategory(activeTab)
     }
 
     return (
         <div>
-            <NewsHeader headerTabs={headerTabs} activeTab={tab} onTabChange={handlerTabChange} />
-            <NewsList activeTab={tab} />
+            <NewsHeader headerTabs={categories} activeTab={cat} onTabChange={handlerCategoryChange} />
+            <NewsList news={news.filter(post => post.category === cat)} />
             <Rates />
         </div>
     );
 };
-
-const headerTabs = [
-    {id: 1, title: 'Сейчас в СМИ'},
-    {id: 2, title: 'В Германии'},
-    {id: 3, title: 'Рекомендуем'}
-];

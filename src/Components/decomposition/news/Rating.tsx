@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactPropTypes } from 'react';
+import { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import classes from '../css/main.module.css';

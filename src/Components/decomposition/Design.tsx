@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
-
 import News from './news/News';
 import Ads from './ads/Ads';
+
+import { newsCategory, news } from './news/news_data';
 
 import classes from './css/main.module.css';
 
@@ -14,7 +14,7 @@ export default function Design() {
     return (
         <div className={classes["App"]}>
             <div className={classes["top"]}>
-                <News />
+                <News newsData={ {categories: newsCategory, news: news} }/>
                 <Ads />
             </div>
         </div>

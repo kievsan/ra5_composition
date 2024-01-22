@@ -1,28 +1,19 @@
-import PropTypes from 'prop-types';
-
-import { news } from './news_data';
+import { NewsPost } from '../../../types';
 
 
 /** блок новостей*/
-export default function NewsList({ activeTab }: {activeTab: string}) {
+export default function NewsList({ news }: {news: Array<NewsPost>}) {
   return (
     <div>
       {
-        news
-          .filter(item => item.category === activeTab)
-          .map((item, i) => (
-              <div key={i}>
-                <img src={item.pic} alt={item.title} />
-                <a href='#' >{item.title}</a>
-              </div>
-            )
+        news.map((post, i) => (
+          <div key={i}>
+            <img src={post.pic} alt={post.title} />
+            <a href={post.link} >{ post.title }</a>
+          </div>
           )
+        )
       }
     </div>
   );
-};
-
-NewsList.propTypes = {
-  /** Передает строку с активным разделом новостей */
-  activeTab: PropTypes.string.isRequired,
 };

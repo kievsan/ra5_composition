@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import PropTypes from 'prop-types';
+
+import { NewsCategory } from '../../../types';
 
 import classes from '../css/main.module.css';
 
@@ -27,9 +28,8 @@ const Tab = (props: TabProps): ReactNode => {
 }
 
 
-interface ITab {id: number, title: string}
 interface Props {
-    headerTabs: Array<ITab>, 
+    headerTabs: Array<NewsCategory>, 
     activeTab: string, 
     onTabChange: (tab: string) => void, 
     children?: ReactNode}
